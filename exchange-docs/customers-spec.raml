@@ -1,0 +1,44 @@
+#%RAML 1.0
+title: SPS Customers API
+version: v1
+baseUri: /api/v1/sps
+mediaType: application/json
+
+types:
+  Customer:
+    type: object
+    properties:
+      FirstName: string
+      LastName: string
+      Email: string
+      Company: string
+
+/customers:
+  get:
+    description: Obtiene la lista de todos los clientes registrados.
+    responses:
+      200:
+        body:
+          application/json:
+            type: Customer[]
+            example: |
+              [
+                {
+                  "FirstName": "Maura",
+                  "LastName": "Wagstaffe",
+                  "Email": "mwagstaffe@npr.org",
+                  "Company": "Kazu"
+                },
+                {
+                  "FirstName": "Myrwyn",
+                  "LastName": "Eliet",
+                  "Email": "meliet1@buzzfeed.com",
+                  "Company": "Skibox"
+                },
+                {
+                  "FirstName": "Jenn",
+                  "LastName": "White",
+                  "Email": "jwhite@wamu.org",
+                  "Company": "NPR"
+                }
+              ]
